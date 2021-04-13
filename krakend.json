@@ -1,0 +1,30 @@
+{
+    "version": 2,
+    "name": "My lovely gateway",
+    "port": 8080,
+    "cache_ttl": "3600s",
+    "timeout": "3s",
+    "extra_config": {
+        "github_com/devopsfaith/krakend-gologging": {
+            "level": "DEBUG",
+            "prefix": "[KRAKEND]",
+            "syslog": false,
+            "stdout": true
+        }
+    },
+    "endpoints": [
+        {
+            "endpoint": "/api/hello/{name}",
+            "method": "GET",
+            "headers_to_pass": ["Content-Type"],
+            "backend": [
+                {
+                    "host": [
+                        "http://127.0.0.1:3000"
+                    ],
+                    "url_pattern": "/api/hello/{name}"
+                }
+            ]
+        }
+    ]
+}
