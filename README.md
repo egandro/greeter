@@ -73,3 +73,5 @@ $ curl -X 'GET' \
   -H 'accept: application/json'
 
 ```  
+
+Expected behavior: use api/hello/{name} of the backend. "World%2Fof" and "World%2Fof%2Fbugs" contains no Slash ("/") in terms of a URI <https://tools.ietf.org/html/rfc3986>.
